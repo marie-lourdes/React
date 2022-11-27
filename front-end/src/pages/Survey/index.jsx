@@ -42,7 +42,7 @@ const ReplyBox = styled.button`
   border-radius: 30px;
   cursor: pointer;
   box-shadow: ${(props) =>
-    props.isSelected ? `0px 0px 0px 2px ${colors.primary} inset` : 'none'};
+    props.isSelected ? `0px 0px 0px 2px ${colors.primary} inset ` : 'none'};
   &:first-child {
     margin-right: 15px;
   }
@@ -67,7 +67,7 @@ function Survey() {
   const [error, setError] = useState(false)
 
   function saveReply(answer) {
-    saveAnswers({ [questionNumber]: answer })
+    saveAnswers({ [questionNumber]: answer })// creation de la propriété entre bracket avec le numero de la question qui est le parametre de requete
   }
 
   useEffect(() => {
@@ -99,6 +99,8 @@ function Survey() {
       ) : (
         <QuestionContent>{surveyData[questionNumber]}</QuestionContent>
       )}
+
+      {/* on met a jour le state answer du surveyprovider a true ou false*/}
       <ReplyWrapper>
         <ReplyBox
           onClick={() => saveReply(true)}

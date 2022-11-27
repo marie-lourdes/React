@@ -11,12 +11,14 @@ padding-left: 20px;
 function Results() {
   const { answers } = useContext(SurveyContext)
   console.log(answers)
+  // chaque entree des objext transformé en tableau
   const answerRecap = Object.entries(answers);
   console.log("answerRecap", answerRecap)
 
   return (
     <ResultContainer>
       <h1>Résultats</h1>
+      {/*afficher les reponse dans la page de resultats*/}
       {answerRecap.map((answer) => <div className="answer">{answer.join(":")}</div>)}
 
     </ResultContainer>

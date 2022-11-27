@@ -16,10 +16,12 @@ export const ThemeProvider = ({ children }) => {
 }
 
 export const SurveyContext = createContext()
-
+// on ne modifie pas directement le State on utilise le spread operator
 export const SurveyProvider = ({ children }) => {
   const [answers, setAnswers] = useState({})
   const saveAnswers = (newAnswers) => {
+    {/*}  si la propriété de new answer est la meme que answer dans les objet le spread operator fera la mise a jour de la proriété d avant avec la nouvelle
+  mais ici le numero de reponse change en tant que propriété*/}
     setAnswers({ ...answers, ...newAnswers })
   }
 
